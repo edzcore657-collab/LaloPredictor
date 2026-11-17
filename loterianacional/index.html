@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1a0407">
+  <meta name="description" content="Genera combinaciones aleatorias para Lotería Nacional (Signo + 4 dígitos). Solo azar, sin predicciones.">
+  <title>Lotería Nacional · Generador de números aleatorios | Lalos Predictor</title>
+  <link rel="stylesheet" href="../assets/lottery.css">
+  <link rel="stylesheet" href="theme.css">
+  <script>window.LOTTERY={"name": "Lotería Nacional", "groups": [{"label": "Signo", "values": ["Aries", "Tauro", "Géminis", "Cáncer", "Leo", "Virgo", "Libra", "Escorpión", "Sagitario", "Capricornio", "Acuario", "Piscis"]}, {"label": "Número", "n": 4, "min": 0, "max": 9, "uniq": false, "pad": 1, "sort": false, "join": true}]};</script>
+  <script src="../assets/lottery.js" defer></script>
+</head>
+<body>
+  <div class="deco" aria-hidden="true"></div>
+  <header class="top"><a class="back" href="../#catalogo">← Todas las loterías</a><a class="mark" href="../" aria-label="Lalos Predictor, inicio">LP<b>.</b></a></header>
+  <main>
+    <img class="logo" data-logo src="../assets/logos/loterianacional.png" alt="Lotería Nacional">
+    <p class="sub">Sorteo Zodiaco: un signo y un número del 0000 al 9999.</p>
+    <div class="wrap">
+      <section class="ticket" aria-label="Generador de Lotería Nacional">
+        <div class="face">
+          <div class="meta"><span>Lotería Nacional</span><span>Signo + 4 dígitos</span></div>
+          <div id="out" aria-live="polite"></div>
+          <p class="cap" id="cap">Presiona «Generar» para sacar tu combinación.</p>
+        </div>
+        <div class="stub">
+          <label class="count" id="countWrap" hidden>Cantidad<select id="count"></select></label>
+          <button class="btn" id="gen" type="button">Generar</button>
+          <button class="btn ghost" id="copy" type="button">Copiar</button>
+        </div>
+      </section>
+    </div>
+    <p class="note">Los números son aleatorios, se generan en tu navegador y no predicen ni mejoran tus probabilidades de ganar. Juega con responsabilidad.</p>
+  </main>
+</body>
+</html>

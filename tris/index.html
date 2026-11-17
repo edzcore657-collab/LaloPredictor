@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#041a1f">
+  <meta name="description" content="Genera combinaciones aleatorias para Tris (Dígitos del 0 al 9). Solo azar, sin predicciones.">
+  <title>Tris · Generador de números aleatorios | Lalos Predictor</title>
+  <link rel="stylesheet" href="../assets/lottery.css">
+  <link rel="stylesheet" href="theme.css">
+  <script>window.LOTTERY={"name": "Tris", "groups": [{"label": "Tu Tris", "n": 5, "min": 0, "max": 9, "uniq": false, "pad": 1, "sort": false, "counts": [5, 4, 3]}]};</script>
+  <script src="../assets/lottery.js" defer></script>
+</head>
+<body>
+  <div class="deco" aria-hidden="true"></div>
+  <header class="top"><a class="back" href="../#catalogo">← Todas las loterías</a><a class="mark" href="../" aria-label="Lalos Predictor, inicio">LP<b>.</b></a></header>
+  <main>
+    <img class="logo" data-logo src="../assets/logos/tris.png" alt="Tris">
+    <p class="sub">De 3 a 5 dígitos del 0 al 9. El orden importa y los dígitos pueden repetirse.</p>
+    <div class="wrap">
+      <section class="ticket" aria-label="Generador de Tris">
+        <div class="face">
+          <div class="meta"><span>Pronósticos</span><span>Dígitos del 0 al 9</span></div>
+          <div id="out" aria-live="polite"></div>
+          <p class="cap" id="cap">Presiona «Generar» para sacar tu combinación.</p>
+        </div>
+        <div class="stub">
+          <label class="count" id="countWrap" hidden>Cantidad<select id="count"></select></label>
+          <button class="btn" id="gen" type="button">Generar</button>
+          <button class="btn ghost" id="copy" type="button">Copiar</button>
+        </div>
+      </section>
+    </div>
+    <p class="note">Los números son aleatorios, se generan en tu navegador y no predicen ni mejoran tus probabilidades de ganar. Juega con responsabilidad.</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,103 @@
+/* Base compartida. Cada lotería sobreescribe colores, tipografía y decoración en su theme.css */
+*{box-sizing:border-box}
+:root{--bg:#10131f;--bg2:#1b2036;--a:#d6336c;--b:#ffd43b;--ink:#2a0a14;--font:Impact,sans-serif;--deco:none;--s:200px;--r:16px;--mono:ui-monospace,'DM Mono',Menlo,monospace}
+body{margin:0;min-height:100vh;color:#fff;font:15px/1.55 Manrope,'Segoe UI',system-ui,sans-serif;background:radial-gradient(ellipse 90% 55% at 50% 0,color-mix(in srgb,var(--a) 50%,transparent),transparent),linear-gradient(165deg,var(--bg),var(--bg2)) fixed;overflow-x:hidden}
+.deco{position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--deco);-webkit-mask-image:linear-gradient(#000,transparent 90%);mask-image:linear-gradient(#000,transparent 90%)}
+a{color:inherit;text-decoration:none}
+.top{display:flex;justify-content:space-between;align-items:center;width:min(1040px,calc(100% - 36px));margin:0 auto;padding:22px 0}
+.back{font-weight:700;opacity:.8}.back:hover{opacity:1}
+.mark{font-weight:800;font-size:18px;letter-spacing:-1.5px}.mark b{color:var(--b)}
+main{width:min(980px,calc(100% - 36px));margin:0 auto;padding:4px 0 70px;text-align:center}
+.logo{display:block;margin:10px auto 4px;max-height:150px;max-width:min(460px,84%);object-fit:contain;filter:drop-shadow(0 8px 26px rgba(0,0,0,.5))}
+.logo-fallback{display:block;margin:10px auto 4px;font:400 clamp(60px,15vw,132px)/1.05 var(--font);letter-spacing:1px;background:linear-gradient(180deg,#fff 15%,var(--b));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 22px color-mix(in srgb,var(--a) 75%,transparent))}
+.sub{max-width:560px;margin:8px auto 32px;font-size:16px;opacity:.9}
+
+/* Boleto: la forma se recorta con máscara para que las muescas sean huecos reales */
+.wrap{filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
+.ticket{--m:radial-gradient(circle var(--r) at calc(100% - var(--s)) 0,#0000 96%,#000);--n:radial-gradient(circle var(--r) at calc(100% - var(--s)) 100%,#0000 96%,#000);display:grid;grid-template-columns:1fr var(--s);text-align:left;border-radius:24px;background:linear-gradient(115deg,var(--a),color-mix(in srgb,var(--a) 50%,#000));-webkit-mask:var(--m) 0 0/100% 51% no-repeat,var(--n) 0 100%/100% 51% no-repeat;mask:var(--m) 0 0/100% 51% no-repeat,var(--n) 0 100%/100% 51% no-repeat}
+.face{padding:30px 34px 26px;background:radial-gradient(circle at 10% 0,rgba(255,255,255,.22),transparent 55%)}
+.meta{display:flex;justify-content:space-between;gap:12px;margin-bottom:22px;font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.grp+.grp{margin-top:22px}
+.grp small{display:block;margin-bottom:10px;font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.ball{width:clamp(50px,10vw,78px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font:400 clamp(24px,5vw,40px)/1 var(--font);color:var(--ink);background:radial-gradient(circle at 32% 25%,#fff,var(--b) 75%);box-shadow:inset -5px -8px 12px rgba(0,0,0,.2),0 8px 16px rgba(0,0,0,.3);animation:pop .45s both;animation-delay:calc(var(--i,0)*70ms)}
+.chip{padding:10px 24px;border-radius:999px;font:400 clamp(26px,5vw,38px)/1.1 var(--font);color:var(--ink);background:linear-gradient(135deg,#fff,var(--b));box-shadow:0 8px 16px rgba(0,0,0,.3)}
+.ghost{opacity:.5;color:#fff;background:rgba(255,255,255,.25)!important;box-shadow:none!important;animation:none!important}
+.cap{min-height:22px;margin:24px 0 0;font-size:13px;opacity:.85}
+.stub{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:26px 22px;border-left:2px dashed rgba(255,255,255,.55);background:rgba(0,0,0,.2)}
+.btn{font:inherit;font-weight:800;font-size:16px;padding:15px 16px;border:0;border-radius:12px;cursor:pointer;color:var(--ink);background:linear-gradient(135deg,#fff,var(--b));box-shadow:0 8px 22px rgba(0,0,0,.3);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}.btn:disabled{opacity:.7;cursor:wait}
+.btn.ghost{color:#fff;background:rgba(255,255,255,.12)!important;border:1px solid rgba(255,255,255,.4);box-shadow:none!important;opacity:1;animation:none}
+.btn:focus-visible,.count select:focus-visible,.back:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.count{display:grid;gap:6px;font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.count[hidden]{display:none}
+.count select{font:600 14px Manrope,system-ui,sans-serif;letter-spacing:0;text-transform:none;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.45);background:rgba(0,0,0,.28);color:#fff}
+.count option{color:#111}
+.note{max-width:620px;margin:28px auto 0;font-size:12px;opacity:.7}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.6)}}
+@media(max-width:720px){
+  .ticket{--sh:178px;--m:radial-gradient(circle var(--r) at 0 calc(100% - var(--sh)),#0000 96%,#000);--n:radial-gradient(circle var(--r) at 100% calc(100% - var(--sh)),#0000 96%,#000);grid-template-columns:1fr;-webkit-mask:var(--m) 0 0/51% 100% no-repeat,var(--n) 100% 0/51% 100% no-repeat;mask:var(--m) 0 0/51% 100% no-repeat,var(--n) 100% 0/51% 100% no-repeat}
+  .face{padding:26px 22px 22px}
+  .stub{height:var(--sh);display:grid;grid-template-columns:1fr 1fr;align-content:center;border-left:0;border-top:2px dashed rgba(255,255,255,.55);padding:18px 22px}
+  .count{grid-column:1/-1}
+}
+@media(prefers-reduced-motion:reduce){.ball{animation:none}.btn{transition:none}}
+
+/* ===== Logo propio ===== */
+.mark{display:flex;align-items:center;letter-spacing:0}
+.site-logo{display:block;height:44px;width:auto;max-width:220px;object-fit:contain}
+.chip{white-space:nowrap}
+/* ===== Slot machine: cada bolita es un carrete ===== */
+.ball.reel,.chip.reel{position:relative;overflow:hidden;display:block;padding-block:0;text-align:center}
+.strip{position:absolute;left:0;top:0;width:100%;display:flex;flex-direction:column;will-change:transform}
+.strip>span{display:grid;place-items:center;height:var(--h);white-space:nowrap}
+.reel::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(rgba(0,0,0,.32),transparent 30%,transparent 70%,rgba(0,0,0,.32))}
+.lp-mute{position:fixed;right:14px;bottom:14px;z-index:9000;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.5);color:#fff;font-size:16px;cursor:pointer}
+.lp-mute:hover{background:rgba(0,0,0,.7)}
+/* ===== Cortina de transición ===== */
+.lp-curtain{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;will-change:transform;background:linear-gradient(160deg,color-mix(in srgb,var(--c) 85%,#fff),var(--c) 55%,color-mix(in srgb,var(--c) 50%,#000))}
+.lp-curtain span{color:#fff;font:400 clamp(34px,9vw,88px)/1 var(--font);letter-spacing:1px;text-align:center;padding:0 24px;text-shadow:0 4px 20px rgba(0,0,0,.35)}
+
+/* ===== Marca: logo + nombre ===== */
+.mark{gap:10px}
+.mark-name{font:800 19px/1 Manrope,'Segoe UI',system-ui,sans-serif;letter-spacing:-.5px;white-space:nowrap}
+.mark-name span{color:var(--b)}
+
+/* ===== SOLO MÓVIL (la versión de PC no cambia) ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+a,button{-webkit-tap-highlight-color:transparent}
+@media (hover:none){.btn:hover{transform:none}.btn:active{transform:scale(.97)}}
+@media(max-width:720px){
+  body{min-height:100dvh}
+  .top{width:calc(100% - 28px);padding:14px 0;gap:10px}
+  .back{font-size:13px;white-space:nowrap;padding:10px 0}
+  .site-logo{height:32px;max-width:110px}
+  .mark{gap:8px}
+  .mark-name{font-size:16px}
+  main{width:calc(100% - 28px);padding-bottom:48px}
+  .logo{max-height:104px;max-width:78%;margin-top:6px}
+  .logo-fallback{font-size:clamp(38px,11.5vw,96px);overflow-wrap:anywhere}
+  .sub{font-size:14.5px;margin:6px auto 22px;padding:0 4px}
+
+  .ticket{--bs:clamp(36px,calc((100vw - 100px) / 6),60px);border-radius:20px}
+  .face{padding:20px 16px 18px}
+  .meta{font-size:10px;margin-bottom:16px;gap:8px}
+  .grp+.grp{margin-top:16px}
+  .row{gap:8px}
+  .ball{width:var(--bs);font-size:calc(var(--bs) * .52)}
+  .chip{font-size:clamp(22px,6vw,30px);padding:8px 18px}
+  .cap{font-size:12.5px;margin-top:18px}
+
+  /* Sin selector de cantidad el talón no necesita tanta altura */
+  .ticket:not(:has(.count:not([hidden]))){--sh:112px}
+  .btn{min-height:50px;font-size:16px}
+  .count select{min-height:44px;font-size:16px} /* 16px evita el zoom automático de iOS */
+  .note{font-size:12px;margin-top:22px}
+  .lp-mute{width:44px;height:44px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:380px){
+  .back{font-size:12px}
+  .site-logo{height:28px;max-width:84px}
+  .mark-name{font-size:14px}
+  .face{padding:18px 14px 16px}
+}

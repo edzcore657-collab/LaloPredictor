@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080f25" />
+  <meta name="description" content="Lalos Predictor: laboratorio visual para explorar combinaciones aleatorias y aprender sobre probabilidad." />
+  <title>Lalos Predictor — Explora el azar</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="lotteries.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-glow page-glow-one" aria-hidden="true"></div>
+  <div class="page-glow page-glow-two" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Lalos Predictor, inicio"><img class="site-logo" data-site-logo alt=""><span class="brand-name">Lalo<span>Predictor</span></span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <a href="#catalogo">Loterías</a>
+      <a href="#como-funciona">Cómo funciona</a>
+    </nav>
+
+    <a class="header-cta" href="#catalogo">Elegir lotería <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="inicio">
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="live-dot"></span> UN ESPACIO PARA EXPLORAR EL AZAR</div>
+        <h1>Los números no se adivinan.<br /><span>Se exploran.</span></h1>
+        <p class="hero-description">Prueba combinaciones, descubre cómo funciona la probabilidad y experimenta con números aleatorios en una interfaz hecha para la curiosidad.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#catalogo">Elegir mi lotería <span>→</span></a>
+          <a class="text-link" href="#como-funciona">Conocer el proyecto <span>↓</span></a>
+        </div>
+        <div class="hero-proof">
+          <div class="proof-icon">✳</div>
+          <p><strong>Transparente por diseño</strong><br /><span>Las combinaciones son aleatorias; no son pronósticos.</span></p>
+        </div>
+      </div>
+
+      <div class="hero-art reveal" aria-label="Ilustración decorativa de una tarjeta de combinación">
+        <div class="orbit orbit-a"></div>
+        <div class="orbit orbit-b"></div>
+        <div class="floating-spark spark-one">✦</div>
+        <div class="floating-spark spark-two">✧</div>
+        <div class="floating-spark spark-three">+</div>
+        <div class="ticket ticket-back">
+          <div class="ticket-topline"><span>LP / LAB</span><span>DEMO 003</span></div>
+          <div class="ticket-skeleton"></div>
+          <div class="ticket-skeleton short"></div>
+          <div class="ticket-faint-balls"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="ticket ticket-front">
+          <div class="ticket-topline"><span class="ticket-label"><span class="ticket-star">✦</span> COMBINACIÓN DE MUESTRA</span><span class="ticket-code">LP-0284</span></div>
+          <div class="ticket-title">Tu próxima<br /><em>exploración.</em></div>
+          <div class="ticket-number-row" aria-hidden="true"><b>04</b><b>12</b><b>19</b><b>27</b><b>33</b></div>
+          <div class="ticket-bottom"><span>GENERADA AL AZAR</span><span class="ticket-stamp">SOLO DEMO</span></div>
+        </div>
+        <div class="floating-chip chip-top"><span class="chip-pulse"></span> RANDOM / ON</div>
+        <div class="floating-chip chip-bottom">✦ &nbsp; CURIOSIDAD EN MARCHA</div>
+      </div>
+
+      <div class="hero-scroll"><span></span> DESLIZA PARA EXPLORAR</div>
+    </section>
+
+    <section class="metrics section-shell" aria-label="Características del laboratorio">
+      <div class="metric-card"><span class="metric-icon">⌁</span><div><strong>100%</strong><small>Combinaciones aleatorias</small></div></div>
+      <div class="metric-card"><span class="metric-icon">◎</span><div><strong id="lotteryCount">20</strong><small>Loterías y sorteos</small></div></div>
+      <div class="metric-card"><span class="metric-icon">↗</span><div><strong>0</strong><small>Promesas de aciertos</small></div></div>
+    </section>
+
+    <section class="section-shell content-section" id="catalogo">
+      <div class="section-heading reveal">
+        <div><div class="eyebrow">01 / ELIGE TU BOLETO</div><h2>Cada lotería, <span>su propio generador.</span></h2></div>
+        <p>Entra a tu juego y genera números con sus reglas: desde dígitos del 0 al 9 hasta 6 números del 1 al 56.</p>
+      </div>
+      <div class="boleto-grid reveal" id="lotteryGrid" aria-label="Loterías disponibles"></div>
+      <p class="micro-note"><span>ⓘ</span> Catálogo informativo e independiente. Lalos Predictor no está afiliado a Pronósticos para la Asistencia Pública, a Lotería Nacional ni a ningún otro organizador de sorteos, no vende boletos y no ofrece predicciones para sorteos reales. Nombres y logotipos pertenecen a sus respectivos titulares; consulta siempre los canales oficiales para reglas y resultados vigentes.</p>
+    </section>
+
+    <section class="section-shell content-section explainer" id="como-funciona">
+      <div class="section-heading reveal">
+        <div><div class="eyebrow">02 / UN POCO DE CIENCIA</div><h2>El azar también tiene <span>reglas.</span></h2></div>
+        <p>Una combinación aleatoria puede ser divertida de explorar, pero no contiene información que permita conocer un resultado futuro.</p>
+      </div>
+      <div class="explain-grid">
+        <article class="explain-card reveal"><span class="explain-icon">01</span><h3>Selección al azar</h3><p>El generador elige valores dentro del rango seleccionado y evita repetir números en una misma combinación.</p></article>
+        <article class="explain-card reveal"><span class="explain-icon">02</span><h3>Probabilidad</h3><p>En un proceso aleatorio justo, cada combinación válida tiene la misma oportunidad de aparecer que cualquier otra.</p></article>
+        <article class="explain-card reveal"><span class="explain-icon">03</span><h3>Sin predicciones</h3><p>Los resultados anteriores no permiten saber qué números aparecerán después. El generador no predice ni garantiza resultados.</p></article>
+      </div>
+    </section>
+
+    <section class="closing section-shell reveal">
+      <div class="closing-orb" aria-hidden="true">✳</div>
+      <div class="eyebrow">LALOS PREDICTOR / LAB</div>
+      <h2>La curiosidad es el<br /><span>mejor punto de partida.</span></h2>
+      <a class="button button-primary" href="#catalogo">Elegir una lotería <span>↑</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <a class="brand footer-brand" href="#inicio" aria-label="Lalos Predictor, inicio"><img class="site-logo" data-site-logo alt=""><span class="brand-name">Lalo<span>Predictor</span></span></a>
+    <p>Un proyecto de demostración para explorar números y probabilidad.</p>
+    <span class="footer-copy">© <span id="currentYear"></span> Lalos Predictor. Hecho para aprender.</span>
+  </footer>
+</body>
+</html>

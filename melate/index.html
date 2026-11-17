@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1f0612">
+  <meta name="description" content="Genera combinaciones aleatorias para Melate (6 de 56). Solo azar, sin predicciones.">
+  <title>Melate · Generador de números aleatorios | Lalos Predictor</title>
+  <link rel="stylesheet" href="../assets/lottery.css">
+  <link rel="stylesheet" href="theme.css">
+  <script>window.LOTTERY={"name": "Melate", "groups": [{"label": "Tus números", "n": 6, "min": 1, "max": 56, "uniq": true, "pad": 2, "sort": true, "counts": [6, 7, 8, 9, 10]}]};</script>
+  <script src="../assets/lottery.js" defer></script>
+</head>
+<body>
+  <div class="deco" aria-hidden="true"></div>
+  <header class="top"><a class="back" href="../#catalogo">← Todas las loterías</a><a class="mark" href="../" aria-label="Lalos Predictor, inicio">LP<b>.</b></a></header>
+  <main>
+    <img class="logo" data-logo src="../assets/logos/melate.png" alt="Melate">
+    <p class="sub">Seis números del 1 al 56, sin repetir. Si quieres jugar más, genera de 7 a 10.</p>
+    <div class="wrap">
+      <section class="ticket" aria-label="Generador de Melate">
+        <div class="face">
+          <div class="meta"><span>Pronósticos</span><span>6 de 56</span></div>
+          <div id="out" aria-live="polite"></div>
+          <p class="cap" id="cap">Presiona «Generar» para sacar tu combinación.</p>
+        </div>
+        <div class="stub">
+          <label class="count" id="countWrap" hidden>Cantidad<select id="count"></select></label>
+          <button class="btn" id="gen" type="button">Generar</button>
+          <button class="btn ghost" id="copy" type="button">Copiar</button>
+        </div>
+      </section>
+    </div>
+    <p class="note">Los números son aleatorios, se generan en tu navegador y no predicen ni mejoran tus probabilidades de ganar. Juega con responsabilidad.</p>
+  </main>
+</body>
+</html>
